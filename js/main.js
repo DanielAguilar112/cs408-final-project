@@ -1,18 +1,59 @@
-window.onload = loaded;
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-/**
- * Simple Function that will be run when the browser is finished loading.
- */
-function loaded() {
-    // Assign to a variable so we can set a breakpoint in the debugger!
-    const hello = sayHello();
-    console.log(hello);
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-/**
- * This function returns the string 'hello'
- * @return {string} the string hello
- */
-export function sayHello() {
-    return 'hello';
+function renderTasks() {
+  const list = document.getElementById("taskList");
+  list.innerHTML = "";
+
+  tasks.forEach((task, index) => {
+    const li = document.createElement("li");
+    li.className = task.completed ? "completed" : "";
+
+    const span = document.createElement("span");
+    span.textContent = task.text;
+    span.style.cursor = "pointer";
+    span.onclick = () => toggleTask(index);
+
+    const actions = document.createElement("div");
+    actions.className = "actions";
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.className = "btn-delete";
+    deleteBtn.onclick = () => deleteTask(index);
+
+    actions.appendChild(deleteBtn);
+    li.appendChild(span);
+    li.appendChild(actions);
+    list.appendChild(li);
+  });
 }
+
+function addTask() {
+  const input = document.getElementById("taskInput");
+  const text = input.value.trim();
+  if (text !== "") {
+    tasks.push({ text, completed: false });
+    input.value = "";
+    saveTasks();
+    renderTasks();
+  }
+}
+
+function toggleTask(index) {
+  tasks[index].completed = !tasks[index].completed;
+  saveTasks();
+  renderTasks();
+}
+
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  saveTasks();
+  renderTasks();
+}
+
+renderTasks();
+
