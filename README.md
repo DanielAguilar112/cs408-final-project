@@ -21,5 +21,4 @@ TODO: Replace the wireframe below with you own design.
 <<<<<<< HEAD
 ![wireframe](img/wireframe.png)
 =======
-![wireframe](https://app.moqups.com/3zZdRtfPn3B7KSgyO1XkWmbG7F1UmzUf/view/page/ad64222d5)
->>>>>>> fa30e502c6959867d09161088474e79cf7bd8f7f
+
