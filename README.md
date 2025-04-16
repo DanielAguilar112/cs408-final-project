@@ -18,4 +18,4 @@ Overall, this project is something I hope will be genuinely helpful to others (a
 
 TODO: Replace the wireframe below with you own design.
 
-![wireframe](wireframe-example.png)
+![wireframe](img/wireframe.png)
