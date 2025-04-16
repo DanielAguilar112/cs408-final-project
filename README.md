@@ -16,9 +16,6 @@ Overall, this project is something I hope will be genuinely helpful to others (a
 
 ## Project Wireframe
 
-TODO: Replace the wireframe below with you own design.
-
-<<<<<<< HEAD
 ![wireframe](img/wireframe.png)
 =======
 
